@@ -57,3 +57,96 @@ button:hover {
      margin: 0px 9px;
 }
 
+/* --------------------------  */
+
+
+/* .App {
+  text-align: center;
+  margin-top: 50px;
+} */
+
+.translator-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.textareaCls {
+  width: 100%;
+  min-height: 200px;
+  max-height: 300px;
+  margin-bottom: 20px;
+  margin: 10px 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.buttonCls {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.buttonCls:hover {
+  background-color: #45a049;
+}
+
+.selectCls {
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.wrapper{
+  width: 90%;
+  margin: auto;
+  background: #0b79d00d;
+  padding: 20px;
+}
+
+.translateBtn{
+  padding: 8px 20px;
+  border: none;
+  background: #0b79d0;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 15px;
+}
+.translateBtn:hover{
+  background-color: #0569b6;
+}
+.controls {
+  justify-content: space-between;
+  padding: 0px;
+  border: 1px solid #cfcfcf;
+  padding: 2px 10px;
+  border-radius: 4px;
+  background: #ffffff;
+  margin: 10px 5px;
+}
+
+.buttonCopyCls{
+  display: flex;
+  align-items: center;
+  display: contents;
+}
+#from{
+  padding: 10px;
+}
+#to{
+  padding: 10px;
+}
+i{
+  cursor: pointer;
+}
+li{
+  list-style-type: none;
+}
+.selectLanguageCls{
+  border: none;
+}
