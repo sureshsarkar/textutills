@@ -49,7 +49,11 @@ const handleRemove = ()=>{
   };
 
 
-  return (
+  return (<>
+  <h1 className="text-center pb-2 textanimate mt-3">
+            Text Translator-: <b>App</b>
+          </h1>
+          
     <div className="calculator">
       <div className="display">
         <div className="input">{input}</div>
@@ -82,6 +86,7 @@ const handleRemove = ()=>{
         <button className="equal" onClick={() => handleClick('=')}>=</button>
       </div>
     </div>
+    </>
   );
 }
 

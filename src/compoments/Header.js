@@ -6,7 +6,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            Textutils
           </a>
           <button
             className="navbar-toggler"
@@ -37,11 +37,11 @@ const Header = () => {
                 Translator
                 </Link>
                 </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/signup">
                   Signup
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

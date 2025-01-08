@@ -63,7 +63,10 @@ function Translator() {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapperCSS">
+      <h1 className="text-center pb-2 textanimate">
+            Text Translator-: <b>App</b>
+          </h1>
         <div className="text-input d-flex">
           <textarea name="from" className="textareacls from-text" placeholder="Enter Text" id="from" value={fromText} onChange={(e) => setFromText(e.target.value)}></textarea>
           <textarea name="to" className="textareacls to-text" id="to" value={toText} readOnly={true}></textarea>

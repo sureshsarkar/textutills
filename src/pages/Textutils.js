@@ -27,7 +27,7 @@ const Textutils = () => {
     setInput(SentenceCaseText);
   };
   const handleSlug = () => {
-    const slugText = input.trim().split(" ").join("-");
+    const slugText = input.trim().split(" ").join("-").toLowerCase();
     setInput(slugText);
   };
   const handleCopy = () => {
@@ -66,10 +66,10 @@ const Textutils = () => {
   };
   return (
     <>
-      <section>
-        <div className="container mt-4">
-          <h1 className="text-center">
-            This is a textutill-: <b>App</b>
+      <section className="custom-bg">
+        <div className="container ">
+          <h1 className="text-center pb-2 textanimate">
+            This is a textutills-: <b>App</b>
           </h1>
           <div className="form-floating">
             <textarea
@@ -77,7 +77,7 @@ const Textutils = () => {
               onChange={handleChange}
               placeholder="Leave a comment here"
               id="textarea"
-              style={{ height: "100px" }}
+              style={{ height: "40%" }}
               value={input}
             >
               {input}

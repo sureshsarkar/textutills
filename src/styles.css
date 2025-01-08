@@ -2,10 +2,12 @@
   font-family: sans-serif;
   text-align: center;
 }
-
+body{
+  background: #cfdfef;
+}
 .calculator {
   width: 220px;
-  margin: 100px auto;
+  margin: 30px auto;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -102,11 +104,13 @@ button:hover {
   font-size: 16px;
   margin-bottom: 20px;
 }
-.wrapper{
+.wrapperCSS{
   width: 90%;
   margin: auto;
   background: #0b79d00d;
   padding: 20px;
+  margin-top: 30px;
+  border-radius: 5px;
 }
 
 .translateBtn{
@@ -150,3 +154,19 @@ li{
 .selectLanguageCls{
   border: none;
 }
+.bg-light{
+  background-color: #dfe6e9 !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 8px;
+}
+.custom-bg{
+    background-color: #cfdfef !important;
+    padding-top: 30px;
+}
+
+.textanimate {
+  color: #670eec; 
+  background-image: linear-gradient(45deg, #670eec 53%, #62dc04 19%, #80b602 23%); 
+  background-clip: text; 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+ }
