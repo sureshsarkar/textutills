@@ -27,7 +27,7 @@ const Textutils = () => {
     setInput(SentenceCaseText);
   };
   const handleSlug = () => {
-    const slugText = input.trim().split(" ").join("-").toLowerCase();
+    const slugText = input.replace(/[^\w\s]/g, "").trim().split(" ").join("-").toLowerCase();
     setInput(slugText);
   };
   const handleCopy = () => {
