@@ -48,7 +48,7 @@ const Textutils = () => {
          if ('speechSynthesis' in window) {
             const speech = new SpeechSynthesisUtterance(input);
                 speech.lang = 'en-US';
-                speech.pitch = 1; // Pitch level (0 to 2)
+                speech.pitch = 2; // Pitch level (0 to 2)
                 speech.rate = 1;  // Speed of speech (0.1 to 10)
                 // Speak the text
                 window.speechSynthesis.speak(speech);
@@ -122,3 +122,4 @@ const Textutils = () => {
   );
 };
 export default Textutils;
+
