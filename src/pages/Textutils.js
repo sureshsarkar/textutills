@@ -1,125 +1,134 @@
-import react, { useState } from "react";
+import React, { useState } from "react";
 
 const Textutils = () => {
   const [input, setInput] = useState("");
+
   const handleChange = (event) => {
     const trimmedText = event.target.value.replace(/\s+/g, " ");
     setInput(trimmedText);
   };
-  //   convert to upper case
-  const handleUpperCase = () => {
-    setInput(input.toUpperCase());
-  };
-  
-  //   convert to lower case
-  const handleLowerCase = () => {
-    setInput(input.toLowerCase());
-  };
-  //   convert to Sentence case
+
+  const handleUpperCase = () => setInput(input.toUpperCase());
+
+  const handleLowerCase = () => setInput(input.toLowerCase());
+
   const handleSentenceCase = () => {
     const SentenceCaseText = input
       .split(" ")
-      .map((word) => {
-        if (word.length === 0) return "";
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-      })
+      .map((word) =>
+        word.length === 0 ? "" : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+      )
       .join(" ");
     setInput(SentenceCaseText);
   };
+
   const handleSlug = () => {
-    const slugText = input.replace(/[^\w\s]/g, "").trim().split(" ").join("-").toLowerCase();
+    const slugText = input
+      .replace(/[^\w\s]/g, "")
+      .trim()
+      .split(" ")
+      .join("-")
+      .toLowerCase();
     setInput(slugText);
   };
-  const handleCopy = () => {
-    navigator.clipboard.writeText(input);
-  };
+
+  const handleCopy = () => navigator.clipboard.writeText(input);
+
   const handleDownload = () => {
     const blob = new Blob([input], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "myFile.txt";
-    document.body.appendChild(link);
+    link.download = "textutils.txt";
     link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
-    const handleListen = () => {
-         if ('speechSynthesis' in window) {
-            const speech = new SpeechSynthesisUtterance(input);
-                speech.lang = 'en-US';
-                speech.pitch = 2; // Pitch level (0 to 2)
-                speech.rate = 1;  // Speed of speech (0.1 to 10)
-                // Speak the text
-                window.speechSynthesis.speak(speech);
-        } else {
-            alert("Sorry, your browser doesn't support text-to-speech!");
-        }
+
+  const handleListen = () => {
+    if ("speechSynthesis" in window) {
+      const speech = new SpeechSynthesisUtterance(input);
+      speech.lang = "en-US";
+      window.speechSynthesis.speak(speech);
+    }
   };
-    const handleReverseText = () => {
-    const ReverseText = input.split("").reverse().join("");
-    setInput(ReverseText);
-  };
-   const removeSpecialCharacters = () => {
-    const newText = input.replace(/[^\w\s]/g, ""); // Remove all non-alphanumeric characters except whitespace
+
+  const handleReverseText = () => setInput(input.split("").reverse().join(""));
+
+  const removeSpecialCharacters = () => {
+    const newText = input.replace(/[^\w\s]/g, "");
     setInput(newText);
   };
+
+  const wordCount = input.trim() === "" ? 0 : input.trim().split(/\s+/).length;
+  const charCount = input.length;
+
   return (
-    <>
-      <section className="custom-bg">
-        <div className="container ">
-          <h1 className="text-center pb-2 textanimate">
-            This is a textutills-: <b>App</b>
-          </h1>
-          <div className="form-floating">
-            <textarea
-              className="form-control"
-              onChange={handleChange}
-              placeholder="Leave a comment here"
-              id="textarea"
-              style={{ height: "40%" }}
-              value={input}
-            >
-              {input}
-            </textarea>
-            {/* <p>{input}</p> */}
-            <div className="m-2">
-              <button className="btn btn-primary m-1" onClick={handleUpperCase} disabled={!input.trim()}>
-                Upper Case
-              </button>
-              <button className="btn btn-primary m-1" onClick={handleLowerCase} disabled={!input.trim()}>
-                Lower Case
-              </button>
-              <button
-                className="btn btn-primary m-1"
-                onClick={handleSentenceCase}
-                  disabled={!input.trim()}>
-                Sentence Case
-              </button>
-              <button className="btn btn-primary m-1" onClick={handleSlug} disabled={!input.trim()}>
-                Slug
-              </button>
-              <button className="btn btn-primary m-1" onClick={handleCopy} disabled={!input.trim()}>
-                Copy
-              </button>
-              <button className="btn btn-primary m-1" onClick={handleDownload} disabled={!input.trim()}>
-                Download
-              </button>
-               <button className="btn btn-primary m-1" onClick={handleListen} disabled={!input.trim()}>
-                Listen Now
-              </button>
-               <button className="btn btn-primary m-1" onClick={handleReverseText} disabled={!input.trim()}>
-                Reverse Text
-              </button>
-               <button className="btn btn-primary m-1" onClick={removeSpecialCharacters} disabled={!input.trim()}>
-                Remove Special Characters
-              </button>
-            </div>
+    <div className="container py-5">
+      <div className="card shadow-lg border-0">
+        <div className="card-body">
+
+          <h2 className="text-center mb-4 text-primary">
+            ✨ TextUtils – Smart Text Tool ✨ 
+          </h2>
+
+          <textarea
+            className="form-control mb-4"
+            rows="8"
+            placeholder="Type or paste your text here..."
+            value={input}
+            onChange={handleChange}
+          ></textarea>
+
+          <div className="d-flex flex-wrap gap-2 justify-content-center mb-4">
+
+            <button className="btn btn-primary" onClick={handleUpperCase} disabled={!input}>
+              Upper Case
+            </button>
+
+            <button className="btn btn-primary" onClick={handleLowerCase} disabled={!input}>
+              Lower Case
+            </button>
+
+            <button className="btn btn-primary" onClick={handleSentenceCase} disabled={!input}>
+              Sentence Case
+            </button>
+
+            <button className="btn btn-secondary" onClick={handleSlug} disabled={!input}>
+              Slug
+            </button>
+
+            <button className="btn btn-success" onClick={handleCopy} disabled={!input}>
+              Copy
+            </button>
+
+            <button className="btn btn-success" onClick={handleDownload} disabled={!input}>
+              Download
+            </button>
+
+            <button className="btn btn-warning" onClick={handleListen} disabled={!input}>
+              Listen
+            </button>
+
+            <button className="btn btn-info" onClick={handleReverseText} disabled={!input}>
+              Reverse
+            </button>
+
+            <button className="btn btn-danger" onClick={removeSpecialCharacters} disabled={!input}>
+              Remove Special
+            </button>
+
           </div>
+
+          <div className="text-center text-muted">
+            <p>
+              <strong>Words:</strong> {wordCount} |{" "}
+              <strong>Characters:</strong> {charCount}
+            </p>
+          </div>
+
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
-export default Textutils;
 
+export default Textutils;
