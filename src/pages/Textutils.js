@@ -1,4 +1,17 @@
 import React, { useState } from "react";
+import {
+  Type,
+  Copy,
+  Download,
+  Volume2,
+  RotateCcw,
+  Eraser,
+  ArrowUp,
+  ArrowDown,
+  CaseSensitive,
+  Link2,
+} from "lucide-react";
+
 
 const Textutils = () => {
   const [input, setInput] = useState("");
@@ -62,69 +75,161 @@ const Textutils = () => {
   const charCount = input.length;
 
   return (
-    <div className="container py-5">
-      <div className="card shadow-lg border-0">
-        <div className="card-body">
+    <div className="min-h-screen bg-neutral-950 text-white py-10 px-5">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-neutral-900 border border-neutral-800 rounded-3xl p-8 shadow-2xl"> 
+            <div className="text-center mb-2"> 
+              <h1 className="text-5xl font-bold">  
+                <span className="block bg-gradient-to-r from-fuchsia-400 via-pink-400 to-purple-500 bg-clip-text text-transparent">
+                 Textutils App
+                </span> 
+              </h1> 
+              <p className="text-neutral-400 mt-2 max-w-2xl mx-auto">
 
-          <h2 className="text-center mb-4 text-primary">
-            ✨ TextUtils – Smart Text Tool ✨ 
-          </h2>
+                Convert, format, clean, copy and analyze your text instantly using our smart tools.
 
-          <textarea
-            className="form-control mb-4"
-            rows="8"
-            placeholder="Type or paste your text here..."
-            value={input}
-            onChange={handleChange}
-          ></textarea>
+              </p>
 
-          <div className="d-flex flex-wrap gap-2 justify-content-center mb-4">
+            </div>
 
-            <button className="btn btn-primary" onClick={handleUpperCase} disabled={!input}>
-              Upper Case
-            </button>
+            <textarea
+              rows={10}
+              value={input}
+              onChange={handleChange}
+              placeholder="Start typing or paste your text here..."
+              className="w-full bg-neutral-950 border border-neutral-800 rounded-2xl p-5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 transition"
+            />
 
-            <button className="btn btn-primary" onClick={handleLowerCase} disabled={!input}>
-              Lower Case
-            </button>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-8">
 
-            <button className="btn btn-primary" onClick={handleSentenceCase} disabled={!input}>
-              Sentence Case
-            </button>
+              <button
+                onClick={handleUpperCase}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-fuchsia-500 hover:bg-fuchsia-600 disabled:opacity-40 py-3 font-semibold transition">
 
-            <button className="btn btn-secondary" onClick={handleSlug} disabled={!input}>
-              Slug
-            </button>
+                <ArrowUp size={18} />
+                Upper
 
-            <button className="btn btn-success" onClick={handleCopy} disabled={!input}>
-              Copy
-            </button>
+              </button>
 
-            <button className="btn btn-success" onClick={handleDownload} disabled={!input}>
-              Download
-            </button>
+              <button
+                onClick={handleLowerCase}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-blue-500 hover:bg-blue-600 disabled:opacity-40 py-3">
 
-            <button className="btn btn-warning" onClick={handleListen} disabled={!input}>
-              Listen
-            </button>
+                <ArrowDown size={18} />
+                Lower
 
-            <button className="btn btn-info" onClick={handleReverseText} disabled={!input}>
-              Reverse
-            </button>
+              </button>
 
-            <button className="btn btn-danger" onClick={removeSpecialCharacters} disabled={!input}>
-              Remove Special
-            </button>
+              <button
+                onClick={handleSentenceCase}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-purple-500 hover:bg-purple-600 disabled:opacity-40 py-3">
 
-          </div>
+                <CaseSensitive size={18} />
+                Sentence
 
-          <div className="text-center text-muted">
-            <p>
-              <strong>Words:</strong> {wordCount} |{" "}
-              <strong>Characters:</strong> {charCount}
-            </p>
-          </div>
+              </button>
 
+              <button
+                onClick={handleSlug}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-40 py-3">
+
+                <Link2 size={18} />
+                Slug
+
+              </button>
+
+              <button
+                onClick={handleCopy}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-green-500 hover:bg-green-600 disabled:opacity-40 py-3">
+
+                <Copy size={18} />
+                Copy
+
+              </button>
+
+              <button
+                onClick={handleDownload}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-600 disabled:opacity-40 py-3">
+
+                <Download size={18} />
+                Download
+
+              </button>
+
+              <button
+                onClick={handleListen}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-yellow-500 text-black hover:bg-yellow-400 disabled:opacity-40 py-3">
+
+                <Volume2 size={18} />
+                Listen
+
+              </button>
+
+              <button
+                onClick={handleReverseText}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-pink-500 hover:bg-pink-600 disabled:opacity-40 py-3">
+
+                <RotateCcw size={18} />
+                Reverse
+
+              </button>
+
+              <button
+                onClick={removeSpecialCharacters}
+                disabled={!input}
+                className="flex items-center justify-center gap-2 rounded-xl bg-red-500 hover:bg-red-600 disabled:opacity-40 py-3">
+
+                <Eraser size={18} />
+                Clean
+
+              </button>
+
+            </div>
+
+            <div className="mt-10 grid md:grid-cols-2 gap-5">
+
+              <div className="bg-neutral-800 rounded-2xl p-6 text-center">
+
+                <p className="text-neutral-400">
+
+                  Words
+
+                </p>
+
+                <h2 className="text-4xl font-bold text-fuchsia-400">
+
+                  {wordCount}
+
+                </h2>
+
+              </div>
+
+              <div className="bg-neutral-800 rounded-2xl p-6 text-center">
+
+                <p className="text-neutral-400">
+
+                  Characters
+
+                </p>
+
+                <h2 className="text-4xl font-bold text-pink-400">
+
+                  {charCount}
+
+                </h2>
+
+              </div>
+
+            </div>
+ 
         </div>
       </div>
     </div>
